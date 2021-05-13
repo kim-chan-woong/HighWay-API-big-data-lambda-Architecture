@@ -93,7 +93,12 @@
 ![Screenshot_229](https://user-images.githubusercontent.com/66659846/118133372-b81e5d80-b43b-11eb-9f6f-e839cb1305d6.png)   
 ![Screenshot_236](https://user-images.githubusercontent.com/66659846/118134224-a4bfc200-b43c-11eb-9895-3d6eaf3f619e.png)   
 ![Screenshot_231](https://user-images.githubusercontent.com/66659846/118133374-b81e5d80-b43b-11eb-9cd7-94f9e8575606.png)   
-
+   
+## ResourceManager, Hive, Spark 모니터링   
+![Screenshot_162](https://user-images.githubusercontent.com/66659846/118143920-cfaf1380-b446-11eb-8888-68a39037e12f.png)   
+![Screenshot_163](https://user-images.githubusercontent.com/66659846/118143925-cfaf1380-b446-11eb-8da5-e0906f289f8a.png)   
+![Screenshot_243](https://user-images.githubusercontent.com/66659846/118143917-ce7de680-b446-11eb-8431-808872837b90.png)   
+   
 ## 배치 적재 시 elasticsearch 이전 데이터 삭제 확인   
 1. 배치 적재된 시간의 데이터들이 삭제, 새로운 실시간 데이터 생성이 반복됨을 확인   
 ![Screenshot_227](https://user-images.githubusercontent.com/66659846/118130202-13e6e780-b438-11eb-8567-dad64857b585.png)   
