@@ -36,7 +36,6 @@
 3. UpdateAttribute: 통합된 데이터를 .json 형식으로 변환합니다.(-> mm.json)   
 4. PutHDFS: 변환된 데이터를 HDFS에 적재합니다.   
 5. putElasticsearHTTP: consumeKaka에서 json 데이터를 한 줄씩 받아 elasticsearch traffic_elk index에 적재합니다.   
-6. 
 ![Screenshot_210](https://user-images.githubusercontent.com/66659846/118102554-eab46000-b413-11eb-8ebd-4909afa59244.png)   
    
 ## 데이터 수집
