@@ -75,7 +75,7 @@
    
 ## HDFS와 HIVE TABLE 배치 적재 확인   
 1. Hive table: traffic_data.batch_yyyymmddhh   
-2. hdfs folder: hdfs://user/batch_traffic/yyyymmdd/hh/*****.csv   
+2. hdfs folder: hdfs://user/batch_traffic/yyyymmdd/hh/********.csv   
 ![Screenshot_169](https://user-images.githubusercontent.com/66659846/118129584-53610400-b437-11eb-8a6b-1fba54f90cf8.png)   
 ![Screenshot_226](https://user-images.githubusercontent.com/66659846/118129588-552ac780-b437-11eb-8d73-5c45515da966.png)   
 
