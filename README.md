@@ -79,7 +79,7 @@
 ![Screenshot_169](https://user-images.githubusercontent.com/66659846/118129584-53610400-b437-11eb-8a6b-1fba54f90cf8.png)   
 ![Screenshot_228](https://user-images.githubusercontent.com/66659846/118133368-b6ed3080-b43b-11eb-9d5b-8f3e147c35f5.png)   
 ![Screenshot_229](https://user-images.githubusercontent.com/66659846/118133372-b81e5d80-b43b-11eb-9f6f-e839cb1305d6.png)   
-![Screenshot_226](https://user-images.githubusercontent.com/66659846/118129588-552ac780-b437-11eb-8d73-5c45515da966.png)   
+![Screenshot_232](https://user-images.githubusercontent.com/66659846/118133651-09c6e800-b43c-11eb-81aa-a9b019cc8867.png)   
 ![Screenshot_231](https://user-images.githubusercontent.com/66659846/118133374-b81e5d80-b43b-11eb-9cd7-94f9e8575606.png)   
 
 ## 배치 적재 시 elasticsearch 이전 데이터 삭제 확인   
