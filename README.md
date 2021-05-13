@@ -60,11 +60,11 @@
 2. kafka cluster(ka01:9200, ka02:9200, ka03:9200)   
 ![Screenshot_206](https://user-images.githubusercontent.com/66659846/118100472-74aef980-b411-11eb-8638-d16766a11478.png)   
    
-## HDFS, Elasticsearch 실시간 적재 확인   
+## HDFS, Elasticsearch 5분 간격 실시간 적재 확인   
 1. HDFS 경로(hdfs://user/source_traffic/yyyymmdd_hh/mm.json   
 2. elasticsearch cluster(elkmaster:9200,5601, elkdn01:9200), index: traffic_elk, type:json   
-![Screenshot_205](https://user-images.githubusercontent.com/66659846/118101597-bc825080-b412-11eb-9a00-04b7531cf6d1.png)   
-![Screenshot_208](https://user-images.githubusercontent.com/66659846/118101603-be4c1400-b412-11eb-9045-af2589466faf.png)   
+![Screenshot_233](https://user-images.githubusercontent.com/66659846/118133873-4561b200-b43c-11eb-9277-20d606b95ba5.png)   
+![Screenshot_234](https://user-images.githubusercontent.com/66659846/118133880-4692df00-b43c-11eb-8696-5ff7ea416533.png)    
 ![Screenshot_209](https://user-images.githubusercontent.com/66659846/118101990-2ef33080-b413-11eb-920e-4047070183f2.png)   
    
 ## 1시간 주기 Pyspark Submit 실행(crontab)   
