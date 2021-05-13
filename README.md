@@ -31,6 +31,9 @@
 # Detailed Process   
 ## 데이터 수집
 1. 5분 주기 getTraffic.py 실행(getdataserver)  
-2. 약간의 전처리 된 데이터를 카프카 프로듀서로 전달하는 파이썬 스크립트   
+2. 약간의 전처리 된 데이터를 카프카 프로듀서로 전달하는 파이썬 스크립트(파일 별도 첨부)   
 ![Screenshot_201](https://user-images.githubusercontent.com/66659846/118097423-a1f9a880-b40d-11eb-8e94-0f95f7278f2e.png)   
 ![Screenshot_204](https://user-images.githubusercontent.com/66659846/118097426-a32ad580-b40d-11eb-8216-7f2cd439e1c0.png)   
+   
+## kafka consumer 확인   
+1. 원본 데이터 수집 확인   
