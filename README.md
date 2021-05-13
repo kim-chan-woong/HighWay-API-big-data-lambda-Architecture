@@ -23,3 +23,10 @@
 ![Screenshot_202](https://user-images.githubusercontent.com/66659846/118095195-bbe5bc00-b40a-11eb-943e-22e8e6603085.png)   
    
 ![Screenshot_203](https://user-images.githubusercontent.com/66659846/118095202-be481600-b40a-11eb-8d90-a5f020cd3410.png)   
+   
+# Result   
+   
+# Server Spec   
+   
+# Detailed Process   
+1. 5분 주기 getTraffic.py 실행(getdataserver)
