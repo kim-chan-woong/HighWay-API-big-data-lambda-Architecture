@@ -25,6 +25,13 @@
 ![Screenshot_203](https://user-images.githubusercontent.com/66659846/118095202-be481600-b40a-11eb-8d90-a5f020cd3410.png)   
    
 # Result   
+## 실시간 출력   
+   
+## 배치 출력   
+1. zeppelin 소스 파일 별도 첨부   
+![Screenshot_244](https://user-images.githubusercontent.com/66659846/118142335-3cc1a980-b445-11eb-8bae-41b2fad96ba5.png)   
+![Screenshot_245](https://user-images.githubusercontent.com/66659846/118142342-3df2d680-b445-11eb-80c7-75e7b127a5b0.png)   
+![Screenshot_246](https://user-images.githubusercontent.com/66659846/118142344-3e8b6d00-b445-11eb-9203-53c1be1e4f5b.png)   
    
 # Server Spec   
 ![Screenshot_242](https://user-images.githubusercontent.com/66659846/118138578-785a7480-b441-11eb-9ed9-27a9756d4f8c.png)   
