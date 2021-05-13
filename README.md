@@ -50,7 +50,7 @@
 ![Screenshot_206](https://user-images.githubusercontent.com/66659846/118100472-74aef980-b411-11eb-8638-d16766a11478.png)   
    
 ## HDFS, Elasticsearch 적재 확인   
-1. HDFS 경로(hdfs://user/source_traffic/yyyymmddhh/mm.json   
+1. HDFS 경로(hdfs://user/source_traffic/yyyymmdd_hh/mm.json   
 2. elasticsearch cluster(elkmaster:9200,5601, elkdn01:9200), index: traffic_elk, type:json   
 ![Screenshot_205](https://user-images.githubusercontent.com/66659846/118101597-bc825080-b412-11eb-9a00-04b7531cf6d1.png)   
 ![Screenshot_208](https://user-images.githubusercontent.com/66659846/118101603-be4c1400-b412-11eb-9045-af2589466faf.png)   
