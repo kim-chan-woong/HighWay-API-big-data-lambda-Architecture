@@ -18,7 +18,8 @@
    
      2-3. 배치 적재된 테이블들을 통합하여 통계 시각화를 출력합니다.(spark & zeppelin)   
    
-3. 실시간 layer에서는 5분마다 원본 데이터들이 elasticsearch에 적재되고 flask 클라이언트의 요청에 선택한 고속도로 조건에 맞는 결과를 document select 하여 출력합니다.   
+3. 실시간 layer에서는 5분마다 원본 데이터들이 elasticsearch에 적재되고 flask 클라이언트의 요청에 선택한 고속도로 조건에 맞는 결과를 index select 하여 출력합니다.   
+    
 ![Screenshot_202](https://user-images.githubusercontent.com/66659846/118095195-bbe5bc00-b40a-11eb-943e-22e8e6603085.png)   
    
 ![Screenshot_203](https://user-images.githubusercontent.com/66659846/118095202-be481600-b40a-11eb-8d90-a5f020cd3410.png)   
