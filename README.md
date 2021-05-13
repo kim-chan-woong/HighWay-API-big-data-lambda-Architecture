@@ -33,9 +33,9 @@
 ## Nifi Data Flow   
 1. ConsumeKafka: 실행된 파이썬 스크립트로 인해 카프카 프로듀서를 통한 데이터 전송이 이루어지고 카프카 컨슈머를 통해 데이터를 전달받습니다.   
    
-   2.1. MergeContent: 원본 데이터는 kafka를 통해 한 줄씩 json으로 전달 받습니다. 전송되는 행들을 하나의 json파일로 통합하고 파일명을 현재 분으로 동적 변경합니다. (-> filename:mm)  
+ 2.1. MergeContent: 원본 데이터는 kafka를 통해 한 줄씩 json으로 전달 받습니다. 전송되는 행들을 하나의 json파일로 통합하고 파일명을 현재 분으로 동적 변경합니다. (-> filename:mm)  
    
-   2.2. PutElasticsearHTTP: consumeKafka에서 json 데이터를 한 줄씩 받아 elasticsearch traffic_elk index에 적재합니다.     
+ 2.2. PutElasticsearHTTP: consumeKafka에서 json 데이터를 한 줄씩 받아 elasticsearch traffic_elk index에 적재합니다.     
    
 3. UpdateAttribute: 통합된 데이터를 .json 형식으로 변환합니다.(-> mm.json)   
    
