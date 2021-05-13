@@ -16,14 +16,7 @@
 # Process   
 1. crontab - python script를 통해 실시간으로 수집되는 데이터는 HDFS(원본 데이터 유지)와 elasticsearch(실시간 적재)에 적재되며 HDFS에 적재 시 Nifi 기능을 통해 현재 시간에 맞게 동적인 파일명이 생성됩니다.      
    
-2. 배치 layer에서는 1시간 단위로 spark가 실행됩니다.   
-   
-     2-1. 1시간 단위로 crontab을 통하여 pyspark-submit이 실행되고, 5분 간격으로 HDFS에 적재된 json형식의 원본 데이터를 1시간 단위로 통합, 가공 후 hive테이블에 배치 적재합니다.  
-     (현재 시간으로 작명된 폴더 내 모든 json파일을 읽어 pyspark dataframe으로 불러옵니다. 후 index key를 생성하기 위해 RDD로 변환, increment key 생성 후, 다시 dataframe으로 변환,         점유율, 교통량, 속도, 평균 시간 컬럼을 Bigint형으로 변환한 뒤, 전체 dataframe select한 결과를 hive table로 적재합니다.(batch_yyyymmddhh.table))   
-   
-     2-2. 1시간 단위로 배치 작업이 이루어지면 elasticsearch 내에 적재되었던 이전데이터들은(배치 적재된 해당 시간 내의 데이터) 삭제됩니다.   
-   
-     2-3. 배치 적재된 테이블들을 통합하여 통계 시각화를 출력합니다.(spark & zeppelin)   
+2. 배치 layer에서는 1시간 단위로 pyspark-submit이 crontab을 통해 실행됩니다. pyspark는 5분 간격으로 HDFS에 적재된 json형식의 원본 데이터를 1시간 단위로 통합, 인덱스 컬럼 추가, 형변환 등의 가공을 거친 후 hive테이블에 배치 적재합니다. 1시간 동안의 데이터가 hive 테이블에 적재되면, 그 시간에 해당되는 elasticsearch에 실시간으로 적재된 이전데이터들이 삭제됩니다. 이후 배치 적재된 hive 테이블들을 spark, zeppelin을 활용하여 통합, 통계 시각화를 출력합니다.   
    
 3. 실시간 layer에서는 5분마다 원본 데이터들이 elasticsearch에 적재되고 flask 클라이언트의 요청에 선택한 고속도로 조건에 맞는 결과를 index select 하여 출력합니다.   
     
