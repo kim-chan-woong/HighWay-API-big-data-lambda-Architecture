@@ -13,8 +13,7 @@
 2. 배치 layer에서는 1시간 단위로 spark가 실행됩니다.   
    
      2-1. 1시간 단위로 crontab을 통하여 pyspark-submit이 실행되고, 5분 간격으로 HDFS에 적재된 json형식의 원본 데이터를 1시간 단위로 통합, 가공 후 hive테이블에 배치 적재합니다.  
-     (현재 시간으로 작명된 폴더 내 모든 json파일을 읽어 pyspark dataframe으로 불러옵니다. 후 index key를 생성하기 위해 RDD로 변환, increment key 생성 후,   
-      다시 dataframe으로 변환 후 점유율, 교통량, 속도, 평균 시간 컬럼을 Bigint형으로 변환 후 전체 dataframe select한 결과를 hive table로 적재합니다.)   
+     (현재 시간으로 작명된 폴더 내 모든 json파일을 읽어 pyspark dataframe으로 불러옵니다. 후 index key를 생성하기 위해 RDD로 변환, increment key 생성 후, 다시 dataframe으로 변환,         점유율, 교통량, 속도, 평균 시간 컬럼을 Bigint형으로 변환한 뒤, 전체 dataframe select한 결과를 hive table로 적재합니다.(batch_yyyymmddhh.table))   
    
      2-2. 1시간 단위로 배치 작업이 이루어지면 elasticsearch 내에 적재되었던 이전데이터들은(배치 적재된 해당 시간 내의 데이터) 삭제됩니다.   
    
