@@ -63,8 +63,8 @@
 ## HDFS, Elasticsearch 5분 간격 실시간 적재 확인   
 1. HDFS 경로(hdfs://user/source_traffic/yyyymmdd_hh/mm.json   
 2. elasticsearch cluster(elkmaster:9200,5601, elkdn01:9200), index: traffic_elk, type:json   
-![Screenshot_233](https://user-images.githubusercontent.com/66659846/118133873-4561b200-b43c-11eb-9277-20d606b95ba5.png)   
-![Screenshot_234](https://user-images.githubusercontent.com/66659846/118133880-4692df00-b43c-11eb-8696-5ff7ea416533.png)    
+![Screenshot_239](https://user-images.githubusercontent.com/66659846/118134954-6f67a400-b43d-11eb-9693-fd4b65e3089a.png)   
+![Screenshot_240](https://user-images.githubusercontent.com/66659846/118134958-7098d100-b43d-11eb-8729-c9e8fd8ba73f.png)    
 ![Screenshot_209](https://user-images.githubusercontent.com/66659846/118101990-2ef33080-b413-11eb-920e-4047070183f2.png)   
    
 ## 1시간 주기 Pyspark Submit 실행(crontab)   
