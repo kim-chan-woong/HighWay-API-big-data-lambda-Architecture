@@ -27,7 +27,8 @@
 # Result   
    
 # Server Spec   
-   
+![Screenshot_242](https://user-images.githubusercontent.com/66659846/118138578-785a7480-b441-11eb-9ed9-27a9756d4f8c.png)   
+     
 # Detailed Process   
 ## Nifi Data Flow(프로세스들 상세 설정 파일 별도 첨부)   
 1. ConsumeKafka: 실행된 파이썬 스크립트로 인해 카프카 프로듀서를 통한 데이터 전송이 이루어지고 카프카 컨슈머를 통해 데이터를 전달받습니다.   
