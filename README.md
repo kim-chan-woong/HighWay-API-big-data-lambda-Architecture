@@ -30,7 +30,7 @@
 # Server Spec   
    
 # Detailed Process   
-## Nifi Data Flow   
+## Nifi Data Flow(프로세스들 상세 설정 별도 첨부)   
 1. ConsumeKafka: 실행된 파이썬 스크립트로 인해 카프카 프로듀서를 통한 데이터 전송이 이루어지고 카프카 컨슈머를 통해 데이터를 전달받습니다.   
    
 2-1. MergeContent: 원본 데이터는 kafka를 통해 한 줄씩 json으로 전달 받습니다. 전송되는 행들을 하나의 json파일로 통합하고 파일명을 현재 분으로 동적 변경합니다. (-> filename:mm)  
@@ -46,7 +46,7 @@
 6. DeleteByQueryElasticsearch: hive에 1시간 동안의 데이터를 통합한 배치 테이블이 적재되면, 그 시간 내에 해당되는 elasticsearch에 적재된 데이터들을 삭제합니다.   
    
 7. LogAttribute: 각 프로세스 실행 여부 간 로그를 출력합니다.   
-![Screenshot_216](https://user-images.githubusercontent.com/66659846/118122226-84d4d200-b42d-11eb-8ab6-9d75f1777b93.png)   
+![Screenshot_218](https://user-images.githubusercontent.com/66659846/118122388-c1a0c900-b42d-11eb-8948-14c19fa9bb47.png)   
    
 ## 데이터 수집
 1. 5분 주기 getTraffic.py 실행(getdataserver)  
