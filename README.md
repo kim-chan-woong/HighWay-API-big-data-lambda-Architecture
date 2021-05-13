@@ -8,8 +8,8 @@
 3. crontab을 통해 5분마다 python script가 api를 호출, 전국 고속도로 소통 현황을 json 형식으로 수집합니다.   
    
 4. 각 고속도로의 conzoneName(고속도로명)이 중복되는 현상이 발견되어 한국도로공사에 문의한 결과, 각 json행들은 한 고속도로 내에 카메라의 개수만큼 행이 출력되는 것을 확인,   
-그러므로 원천데이터의 json 개수는 고속도로의 개수가 아닌 모든 고속도로의 카메라를 합한 개수입니다. 이에 conzoneName이 같을 시, 결국 같은 고속도로 내 다른 카메라이기 때문에,      
-같은 conzoneName이 나올때 마다, 점유율, 교통량, 속도, 평균 시간 컬럼을 더하고 나누는 과정을 1차적으로 거쳐 한 고속도로 내 모든 카메라 데이터 평균을 구하였습니다. 그렇게 각 행의 conzoneName이 고유해진 json데이터(1차 전처리)를 원본데이터라 가정하고 진행하였습니다.   
+그러므로 원천데이터의 json 개수는 고속도로의 개수가 아닌 모든 고속도로의 카메라를 합한 개수입니다. 이에 conzoneName이 같을 시, 결국 같은 고속도로 내 다른 카메라이기 때문에 같은conzoneName이 나올때 마다, 점유율, 교통량, 속도, 평균 시간 컬럼을 더하고 나누는 과정을 1차적으로 거쳐 한 고속도로 내 모든 카메라 데이터 평균을 구하였습니다. 그렇게 각 행의conzoneName이 고유해진 json데이터(1차 전처리)를 원본데이터라 가정하고 진행하였습니다.   
+(컬럼: stdDate-string-수집일자, stdHour-string-수집시각, vdsId-string-VDSID:카메라, trafficAmout-string-교통량, speed-string-속도, shareRatio-string-점유율, timeAvg-string-통행시간, grade-string-소통등급, routeNo-string-노선번호, routeName-string-도로명, updownTypeCode-string-기점종점방향구분코드, conzoneId-string-콘존ID, conzoneName-string-콘존명) 
    
 5. 친절히 답변해주신 한국도로공사에 큰 감사의 인사를 전합니다.   
 
@@ -75,7 +75,7 @@
    
 2. 동적으로 구성된 폴더 내 5분 단위의 json파일들을 dataframe으로 통합, RDD 변환 후 인덱스 컬럼 추가 후 재 dataframe 변환   
    
-3. 점유율, 교통량, 속도, 평균 시간 컬럼 형변환 후 수집 날짜 및 시간명으로 hive 테이블 및 HDFS 적재   
+3. 점유율-shareRatio, 교통량-trafficAmout, 속도-speed, 통행 시간-timeAvg 컬럼 형변환 후 수집 날짜 및 시간명으로 hive 테이블 및 HDFS 적재   
 ![Screenshot_221](https://user-images.githubusercontent.com/66659846/118128223-91f5bf00-b435-11eb-9d2b-87f213f182b9.png)   
    
 ## HDFS와 HIVE TABLE 배치 적재 확인   
