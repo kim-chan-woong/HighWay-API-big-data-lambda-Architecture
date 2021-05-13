@@ -6,7 +6,7 @@ import json
 import pandas as pd
 
 # 변수, 데이터 프레임, 카프카 프로듀서 객체 선언
-url = 'http://data.ex.co.kr/openapi/odtraffic/trafficAmountByRealtime?key=1751714458&type=json'
+url = 'http://data.ex.co.kr/openapi/odtraffic/trafficAmountByRealtime?key=your key&type=json'
 response=urllib.request.urlopen(url)
 json_str=response.read().decode("utf-8")
 json_object=json.loads(json_str)
