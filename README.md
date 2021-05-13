@@ -32,11 +32,21 @@
 # Detailed Process   
 ## Nifi Data Flow   
 1. ConsumeKafka: 실행된 파이썬 스크립트로 인해 카프카 프로듀서를 통한 데이터 전송이 이루어지고 카프카 컨슈머를 통해 데이터를 전달받습니다.   
-2. MergeContent: 원본 데이터는 kafka를 통해 한 줄씩 json 형식으로 전달 받습니다. 전송되는 파일들을 하나의 json파일로 통합하고 이름을 현재 분으로 동적 변경합니다. (-> filename:mm)   
+   
+2.1. MergeContent: 원본 데이터는 kafka를 통해 한 줄씩 json으로 전달 받습니다. 전송되는 행들을 하나의 json파일로 통합하고 파일명을 현재 분으로 동적 변경합니다. (-> filename:mm)  
+   
+2.2. PutElasticsearHTTP: consumeKafka에서 json 데이터를 한 줄씩 받아 elasticsearch traffic_elk index에 적재합니다.     
+   
 3. UpdateAttribute: 통합된 데이터를 .json 형식으로 변환합니다.(-> mm.json)   
-4. PutHDFS: 변환된 데이터를 HDFS에 적재합니다.   
-5. putElasticsearHTTP: consumeKaka에서 json 데이터를 한 줄씩 받아 elasticsearch traffic_elk index에 적재합니다.   
-![Screenshot_210](https://user-images.githubusercontent.com/66659846/118102554-eab46000-b413-11eb-8ebd-4909afa59244.png)   
+   
+4. PutHDFS: 변환된 데이터를 HDFS에 적재합니다. 폴더 구조는 nifi 자체 기능을 활용하여 동적인 시간으로 작명합니다.(yyyymmdd_hh/mm.json)   
+   
+5. SelectHiveQL: 1시간에 한 번씩 실행되는 pyspark-submit의 작업이 완료되면, hive에 배치 테이블이 생성됩니다. 이를 확인하기 위한 select문입니다.   
+   
+6. DeleteByQueryElasticsearch: hive에 1시간 동안의 데이터를 통합한 배치 테이블이 적재되면, 그 시간 내에 해당되는 elasticsearch에 적재된 데이터들을 삭제합니다.   
+   
+7. LogAttribute: 각 프로세스 실행 여부 간 로그를 출력합니다.   
+![Screenshot_214](https://user-images.githubusercontent.com/66659846/118121319-4559b600-b42c-11eb-8093-d23ac398724d.png)   
    
 ## 데이터 수집
 1. 5분 주기 getTraffic.py 실행(getdataserver)  
