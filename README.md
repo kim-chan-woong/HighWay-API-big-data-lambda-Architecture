@@ -69,7 +69,9 @@
    
 ## 1시간 주기 Pyspark Submit 실행(crontab)   
 1. crontab을 통해 pyspark가 매 시간 58분마다 실행(소스 파일 별도 첨부)  
+   
 2. 동적으로 구성된 폴더 내 5분 단위의 json파일들을 dataframe으로 통합, RDD 변환 후 인덱스 컬럼 추가 후 재 dataframe 변환   
+   
 3. 점유율, 교통량, 속도, 평균 시간 컬럼 형변환 후 수집 날짜 및 시간명으로 hive 테이블 및 HDFS 적재   
 ![Screenshot_221](https://user-images.githubusercontent.com/66659846/118128223-91f5bf00-b435-11eb-9d2b-87f213f182b9.png)   
    
