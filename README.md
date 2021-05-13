@@ -37,3 +37,4 @@
    
 ## kafka consumer 확인   
 1. 원본 데이터 수집 확인   
+![Screenshot_205](https://user-images.githubusercontent.com/66659846/118100258-374a6c00-b411-11eb-86c2-bc151df9389d.png)   
