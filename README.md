@@ -45,5 +45,6 @@
 2. elasticsearch cluster(elkmaster:9200,5601, elkdn01:9200), index: traffic_elk, type:json   
 ![Screenshot_205](https://user-images.githubusercontent.com/66659846/118101597-bc825080-b412-11eb-9a00-04b7531cf6d1.png)   
 ![Screenshot_208](https://user-images.githubusercontent.com/66659846/118101603-be4c1400-b412-11eb-9045-af2589466faf.png)   
+![Screenshot_209](https://user-images.githubusercontent.com/66659846/118101990-2ef33080-b413-11eb-920e-4047070183f2.png)   
    
 ## Pyspark submit crontab   
