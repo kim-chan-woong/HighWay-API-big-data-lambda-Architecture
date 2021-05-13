@@ -79,4 +79,6 @@
 ![Screenshot_169](https://user-images.githubusercontent.com/66659846/118129584-53610400-b437-11eb-8a6b-1fba54f90cf8.png)   
 ![Screenshot_226](https://user-images.githubusercontent.com/66659846/118129588-552ac780-b437-11eb-8d73-5c45515da966.png)   
 
-
+## 배치 적재 시 elasticsearch 이전 데이터 삭제 확인   
+1. 배치 적재된 시간의 데이터들이 삭제, 새로운 실시간 데이터 생성이 반복됨을 확인   
+![Screenshot_227](https://user-images.githubusercontent.com/66659846/118130202-13e6e780-b438-11eb-8567-dad64857b585.png)   
