@@ -8,11 +8,13 @@
 3. crontab을 통해 5분마다 python script가 api를 호출, 전국 고속도로 소통 현황을 json 형식으로 수집합니다.   
 
 # Process   
-1. 실시간으로 수집되는 데이터는 HDFS(원본 데이터 유지)와 elasticsearch(실시간 적재 및 삭제)에 적재됩니다.   
+1. 실시간으로 수집되는 데이터는 HDFS(원본 데이터 유지)와 elasticsearch(실시간 적재)에 적재되며 HDFS에 적재 시 Nifi 기능을 통해 현재 시간에 맞게 동적인 파일명이 생성됩니다.      
    
 2. 배치 layer에서는 1시간 단위로 spark가 실행됩니다.   
    
-     2-1. 1시간 단위로 crontab을 통하여 pyspark-submit이 실행되고, 5분 간격으로 HDFS에 적재된 json형식의 원본 데이터를 1시간 단위로 통합, 가공 후 hive테이블에 배치 적재합니다.   
+     2-1. 1시간 단위로 crontab을 통하여 pyspark-submit이 실행되고, 5분 간격으로 HDFS에 적재된 json형식의 원본 데이터를 1시간 단위로 통합, 가공 후 hive테이블에 배치 적재합니다.  
+     (현재 시간으로 작명된 폴더 내 모든 json파일을 읽어 pyspark dataframe으로 불러옵니다. 후 index key를 생성하기 위해 RDD로 변환, increment key 생성 후,   
+      다시 dataframe으로 변환 후 점유율, 교통량, 속도, 평균 시간 컬럼을 Bigint형으로 변환 후 전체 dataframe select한 결과를 hive table로 적재합니다.)   
    
      2-2. 1시간 단위로 배치 작업이 이루어지면 elasticsearch 내에 적재되었던 이전데이터들은(배치 적재된 해당 시간 내의 데이터) 삭제됩니다.   
    
@@ -29,6 +31,13 @@
 # Server Spec   
    
 # Detailed Process   
+## Nifi Data Flow   
+1. ConsumeKafka: 실행된 파이썬 스크립트로 인해 카프카 프로듀서를 통한 데이터 전송이 이루어지고 카프카 컨슈머를 통해 데이터를 전달받습니다.   
+2. MergeContent: 원본 데이터는 kafka를 통해 한 줄씩 json 형식으로 전달 받습니다. 전송되는 파일들을 하나의 json파일로 통합하고 이름을 현재 분으로 동적 변경합니다. (-> filename:mm)   
+3. UpdateAttribute: 통합된 데이터를 .json 형식으로 변환합니다.(-> mm.json)   
+4. PutHDFS: 변환된 데이터를 HDFS에 적재합니다.   
+![Screenshot_210](https://user-images.githubusercontent.com/66659846/118102554-eab46000-b413-11eb-8ebd-4909afa59244.png)   
+   
 ## 데이터 수집
 1. 5분 주기 getTraffic.py 실행(getdataserver)  
 2. 약간의 전처리 된 데이터를 카프카 프로듀서로 전달하는 파이썬 스크립트(파일 별도 첨부)   
@@ -47,4 +56,4 @@
 ![Screenshot_208](https://user-images.githubusercontent.com/66659846/118101603-be4c1400-b412-11eb-9045-af2589466faf.png)   
 ![Screenshot_209](https://user-images.githubusercontent.com/66659846/118101990-2ef33080-b413-11eb-920e-4047070183f2.png)   
    
-## Pyspark submit crontab   
+## 1시간 주기 Pyspark Submit 실행(crontab)   
