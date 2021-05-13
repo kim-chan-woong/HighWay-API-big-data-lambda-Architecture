@@ -57,7 +57,7 @@ if json_object['code'] == 'SUCCESS':
             else:
                 df=df.append(i, ignore_index=True)
                 
-    # 데이터 프레임 -> 최종 json            
+    # 데이터 프레임 -> 최종 json create            
     json_result = df.to_dict('records')
     
     # json 한 객체 단위로 카프카 프로듀서 전송
