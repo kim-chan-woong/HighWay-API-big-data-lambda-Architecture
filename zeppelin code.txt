@@ -1,0 +1,49 @@
+// spark 객체 생성
+import org.apache.spark.sql.hive.HiveContext
+
+val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+
+hiveContext.sql("USE traffic_data").collect().foreach(println)
+
+%sql
+-- 데이터 통합
+create table result_traffic (
+    select 10 as hour_time, * from batch_2021051210 union
+    select 11 as hour_time, * from batch_2021051211 union
+    select 12 as hour_time, * from batch_2021051212 union
+    select 13 as hour_time, * from batch_2021051213 union
+    select 14 as hour_time, * from batch_2021051214 union
+    select 16 as hour_time, * from batch_2021051216 union
+    select 17 as hour_time, * from batch_2021051217 union
+    select 18 as hour_time, * from batch_2021051218 union
+    select 19 as hour_time, * from batch_2021051219 union
+    select 20 as hour_time, * from batch_2021051220)
+
+%sql
+-- 교통량 비교
+select hour_time, sum(trafficamout) as sum_trafficamout
+from result_traffic
+group by hour_time
+order by hour_time
+
+%sql
+-- conzoneName 별 통행 시간 상위 5개소
+select a.*
+from (
+    select conzonename, avg(timeavg) as avg_timeAvg,
+    rank() over (order by avg(timeavg) desc) ranking1,
+    row_number() over (order by avg(timeavg) desc) ranking2
+    from result_traffic
+    group by conzonename) a
+where ranking1 <= 5
+
+%sql
+-- 도로명 별 평균 속도 상위 5개소
+select a.*
+from (
+    select routename, avg(speed) as avg_speed,
+    rank() over (order by avg(speed) desc) ranking1,
+    row_number() over (order by avg(speed) desc) ranking2
+    from result_traffic
+    group by routename) a
+where ranking1 <= 5
