@@ -37,4 +37,9 @@
    
 ## kafka consumer 확인   
 1. 원본 데이터 수집 확인   
-![Screenshot_205](https://user-images.githubusercontent.com/66659846/118100258-374a6c00-b411-11eb-86c2-bc151df9389d.png)   
+2. kafka cluster(ka01:9200, ka02:9200, ka03:9200)   
+![Screenshot_206](https://user-images.githubusercontent.com/66659846/118100472-74aef980-b411-11eb-8638-d16766a11478.png)   
+   
+## HDFS, Elasticsearch 적재 확인   
+1. HDFS 경로(hdfs://user/source_traffic/yyyymmddhh/mm.json   
+2. elasticsearch cluster(elkmaster:9200,5601, elkdn01:9200), index: traffic_elk, type:json   
