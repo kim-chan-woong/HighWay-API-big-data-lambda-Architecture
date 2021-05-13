@@ -57,11 +57,13 @@
    
 ## kafka consumer 확인   
 1. 원본 데이터 수집 확인   
+   
 2. kafka cluster(ka01:9200, ka02:9200, ka03:9200)   
 ![Screenshot_206](https://user-images.githubusercontent.com/66659846/118100472-74aef980-b411-11eb-8638-d16766a11478.png)   
    
 ## HDFS, Elasticsearch 5분 간격 실시간 적재 확인   
 1. HDFS 경로(hdfs://user/source_traffic/yyyymmdd_hh/mm.json   
+   
 2. elasticsearch cluster(elkmaster:9200,5601, elkdn01:9200), index: traffic_elk, type:json   
 ![Screenshot_239](https://user-images.githubusercontent.com/66659846/118134954-6f67a400-b43d-11eb-9693-fd4b65e3089a.png)   
 ![Screenshot_240](https://user-images.githubusercontent.com/66659846/118134958-7098d100-b43d-11eb-8729-c9e8fd8ba73f.png)    
