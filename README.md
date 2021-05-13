@@ -29,7 +29,7 @@
 # Server Spec   
    
 # Detailed Process   
-## Nifi Data Flow(프로세스들 상세 설정 별도 첨부)   
+## Nifi Data Flow(프로세스들 상세 설정 파일 별도 첨부)   
 1. ConsumeKafka: 실행된 파이썬 스크립트로 인해 카프카 프로듀서를 통한 데이터 전송이 이루어지고 카프카 컨슈머를 통해 데이터를 전달받습니다.   
    
 2-1. MergeContent: 원본 데이터는 kafka를 통해 한 줄씩 json으로 전달 받습니다. 전송되는 행들을 하나의 json파일로 통합하고 파일명을 현재 분으로 동적 변경합니다. (-> filename:mm)  
@@ -50,7 +50,7 @@
 ## 데이터 수집
 1. 5분 주기 getTraffic.py 실행(getdataserver)  
    
-2. 약간의 전처리 된 데이터를 카프카 프로듀서로 전달하는 파이썬 스크립트(파일 별도 첨부)   
+2. 약간의 전처리 된 데이터를 카프카 프로듀서로 전달하는 파이썬 스크립트(소스 파일 별도 첨부)   
 
 ![Screenshot_201](https://user-images.githubusercontent.com/66659846/118097423-a1f9a880-b40d-11eb-8e94-0f95f7278f2e.png)   
 ![Screenshot_204](https://user-images.githubusercontent.com/66659846/118097426-a32ad580-b40d-11eb-8216-7f2cd439e1c0.png)   
@@ -68,4 +68,5 @@
 ![Screenshot_209](https://user-images.githubusercontent.com/66659846/118101990-2ef33080-b413-11eb-920e-4047070183f2.png)   
    
 ## 1시간 주기 Pyspark Submit 실행(crontab)   
-1. 
+1. crontab을 통해 pyspark가 매 시간 58분마다 실행(소스 파일 별도 첨부)   
+![Screenshot_221](https://user-images.githubusercontent.com/66659846/118128223-91f5bf00-b435-11eb-9d2b-87f213f182b9.png)   
