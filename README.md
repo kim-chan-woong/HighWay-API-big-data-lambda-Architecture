@@ -35,7 +35,7 @@
 ![Screenshot_246](https://user-images.githubusercontent.com/66659846/118142344-3e8b6d00-b445-11eb-9203-53c1be1e4f5b.png)   
    
 # Server Spec   
-![Screenshot_249](https://user-images.githubusercontent.com/66659846/118143661-9080c280-b446-11eb-9aff-85051d58678e.png)   
+![안](https://user-images.githubusercontent.com/66659846/118815760-7d5d6f00-b8ec-11eb-9407-ccdbcb2fcae2.png)   
      
 # Detailed Process   
 ## Nifi Data Flow(프로세스들 상세 설정 파일 별도 첨부)   
