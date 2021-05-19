@@ -26,6 +26,7 @@
    
 # Result   
 ## 실시간 출력   
+<img width="80%" src="https://user-images.githubusercontent.com/66659846/118811086-8bf55780-b8e7-11eb-92a1-5da1d2125a4e.gif"/>   
    
 ## 배치 출력   
 1. zeppelin 소스 파일 별도 첨부   
