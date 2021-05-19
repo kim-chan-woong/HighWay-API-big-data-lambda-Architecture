@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Real-Time IC</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 style="color: #90c7f8;">{{routeValue}} {{conzoneNameValue}}
+    &nbsp;&nbsp;
+    <a href="/" style="font-size: 15px; color: #90c7f8;">홈으로</a>
+    </h1>
+
+
+    <div class="container-sub-1">
+
+        <form method="post" name="form">
+            <!-- elk 가지고와서 for문 선택된 고속도로 내 전체 세부 도로명 -->
+            <br>
+            {% for x in conzoneNamelist %}
+              <input type="submit" class="choiceBtn" formaction="/resultIC/{{ x }}" value="{{ x }}"/>
+              <br>
+            {% endfor %}
+        </form>
+    </div>
+
+    <div class="container-sub-2">
+
+        <br>
+        <br>
+
+        <!-- 결과 카테고리 테이블 -->
+        <table class="category">
+            <td>요청 시각</td>
+            <td>실수집 시각</td>
+            <td>도로명</td>
+            <td>평균 속도</td>
+            <td>평균 통행 시간</td>
+            <td>평균 교통량</td>
+            <td>점유율</td>
+        </table>
+
+        <br>
+
+        <!-- 결과 테이블 -->
+        <table class="resultTable">
+            <td class="resultTd">{{ reqTimeValue }}</td>
+            <td class="resultTd">{{ stdHourValue }}</td>
+            <td class="resultTd">{{ conzoneNameValue }}</td>
+            <td class="resultTd">{{ speedValue }}</td>
+            <td class="resultTd">{{ timeAvgValue }}</td>
+            <td class="resultTd">{{ trafficAmoutValue }}</td>
+            <td class="resultTd">{{ shareRatioValue }}</td>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+<style>
+    .container {
+        float: left;
+        text-align: center;
+        border: 7px solid;
+        border-color: #90c7f8;
+        position: relative;
+        top: 50px;
+    }
+
+    .container-sub-1 {
+        text-align: left;
+        border-color: #90c7f8;
+        border-right: 5px solid #90c7f8;
+        border-top: 5px solid #90c7f8;
+        float: left;
+        height: 300px;
+        overflow: scroll;
+    }
+
+    .container-sub-2 {
+        text-align: center;
+        border-color: #90c7f8;
+        border-top: 5px solid #90c7f8;
+    }
+
+    .choiceBtn {
+        border: 2px solid; 
+        border-color: #90c7f8; 
+        background-color: white;
+    }
+
+    .choiceText {
+        border: 2px solid; 
+        border-color: #90c7f8; 
+        background-color: white;
+    }
+
+    td {
+        border: 2px solid;
+        border-color: #90c7f8; 
+        background-color: white;
+        width: 1250px;
+        font-size: 15px;
+    }
+
+    .resultTd {
+        width: 150px;
+        height: 150px;
+    }
+
+</style>
+</html>
